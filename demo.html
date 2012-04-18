@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+<input id="ss" type="text" onclick="test()" />
+</body>
+
+<script type="text/javascript" src="soapObj.js"></script>
+
+<script type="text/javascript">
+	;
+	function test() {
+		var so = $.soapObj
+				.init( {
+					wsURL : "http://127.0.0.1:8081/test/webservice/sapWebService?wsdl",//url
+//                  method collection
+					methods : [ {
+						methodName : 'SapJsonWebservice',
+						paramters : [
+								{
+									name : 'RFCName',
+									val : 'rfcName'
+								},
+								{
+									name : 'jsonParams',
+									val : "{'importParams':{},'importTables':{'TB_VACATION_APPLY':[{'OAACT':'liangjz','PERNR':'','AWART':'e002','BEGDA':'20121212','ENDDA':'20121213','STDAZ':'5'}]}}"
+								} ]
+					} ]
+				});
+		// handle result
+		so.getResult(function(){
+			if(this.readyState==4){
+                  alert(this.responseText);
+				}
+			});
+	}
+</script>
+
+
+
+
+
+
+</html>
