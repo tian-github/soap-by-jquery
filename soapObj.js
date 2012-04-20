@@ -10,7 +10,7 @@
 			this.options = $.extend({}, this.options, options);
 			return this.options;
 		},
-		sapToXml : function() {
+		soapToXml : function() {
 			var mergeOptions = $
 					.extend({}, $.soapObj.defaults, this.options);
 			xmlArray = [];
@@ -54,7 +54,7 @@
 			xmlhttp.onreadystatechange=function(){
 			callback.call(xmlhttp);
 			}
-			xmlhttp.send(this.sapToXml());
+			xmlhttp.send(this.soapToXml());
 		}
 	}
 	$.extend({
