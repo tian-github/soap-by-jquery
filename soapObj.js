@@ -1,5 +1,5 @@
 /**
- * test git1
+ * test git2
  */
 (function($) {
 	function SoapObj(options) {
